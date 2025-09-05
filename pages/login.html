@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Portal - Login | University Management System</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffacultypo9167back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-primary-50 via-background to-accent-50">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)"/>
+        </svg>
+    </div>
+
+    <!-- Main Container -->
+    <div class="relative min-h-screen flex items-center justify-center px-4 py-12">
+        <!-- Login Card -->
+        <div class="w-full max-w-md">
+            <!-- University Logo & Header -->
+            <div class="text-center mb-8">
+                <div class="mx-auto w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 shadow-academic-lg">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-semibold text-text-primary mb-2">Faculty Portal</h1>
+                <p class="text-text-secondary">University Management System</p>
+            </div>
+
+            <!-- Login Form Card -->
+            <div class="card shadow-academic-xl border-0">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold text-text-primary mb-2">Welcome Back</h2>
+                    <p class="text-text-secondary text-sm">Sign in to access your faculty dashboard</p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="space-y-6">
+                    <!-- Email/Username Field -->
+                    <div>
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" class="form-input pl-10" placeholder="Enter your email address" required autocomplete="email" />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="form-label">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" class="form-input pl-10 pr-10" placeholder="Enter your password" required autocomplete="current-password" />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                            <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-secondary hover:text-text-primary transition-colors" aria-label="Toggle password visibility">
+                                <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <svg id="eyeOffIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember" name="remember" type="checkbox" class="h-4 w-4 text-primary focus:ring-primary-500 border-border rounded transition-colors" />
+                            <label for="remember" class="ml-2 block text-sm text-text-secondary">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="javascript:void(0)" class="font-medium text-primary hover:text-primary-700 transition-colors">
+                                Forgot password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="hidden alert-error">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span id="errorText">Invalid email or password. Please try again.</span>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Button -->
+                    <button type="submit" id="signInBtn" class="w-full btn-primary py-3 text-base font-medium shadow-academic hover:shadow-academic-lg transform hover:-translate-y-0.5 transition-all duration-200">
+                        <span id="signInText">Sign In</span>
+                        <svg id="loadingIcon" class="hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Demo Credentials -->
+                <div class="mt-6 p-4 bg-accent-50 rounded-lg border border-accent-100">
+                    <h3 class="text-sm font-medium text-accent-800 mb-2">Demo Credentials</h3>
+                    <div class="text-xs text-accent-700 space-y-1">
+                        <div><strong>Admin:</strong> admin@university.edu / admin123</div>
+                        <div><strong>Professor:</strong> professor@university.edu / prof123</div>
+                        <div><strong>Faculty:</strong> faculty@university.edu / faculty123</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security & Compliance -->
+            <div class="mt-8 text-center">
+                <div class="flex items-center justify-center space-x-4 mb-4">
+                    <div class="flex items-center text-xs text-text-secondary">
+                        <svg class="w-4 h-4 mr-1 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                        </svg>
+                        SSL Secured
+                    </div>
+                    <div class="flex items-center text-xs text-text-secondary">
+                        <svg class="w-4 h-4 mr-1 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        FERPA Compliant
+                    </div>
+                </div>
+                <p class="text-xs text-text-secondary">
+                    © 2025 University Management System. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Password toggle functionality
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const eyeOffIcon = document.getElementById('eyeOffIcon');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            eyeIcon.classList.toggle('hidden');
+            eyeOffIcon.classList.toggle('hidden');
+        });
+
+        // Form submission handling
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const signInBtn = document.getElementById('signInBtn');
+        const signInText = document.getElementById('signInText');
+        const loadingIcon = document.getElementById('loadingIcon');
+
+        // Demo credentials
+        const validCredentials = [
+            { email: 'admin@university.edu', password: 'admin123' },
+            { email: 'professor@university.edu', password: 'prof123' },
+            { email: 'faculty@university.edu', password: 'faculty123' }
+        ];
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Show loading state
+            signInBtn.disabled = true;
+            signInText.textContent = 'Signing In...';
+            loadingIcon.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+            
+            // Simulate authentication delay
+            setTimeout(() => {
+                const isValid = validCredentials.some(cred => 
+                    cred.email === email && cred.password === password
+                );
+                
+                if (isValid) {
+                    // Store user session
+                    localStorage.setItem('facultyUser', JSON.stringify({
+                        email: email,
+                        loginTime: new Date().toISOString(),
+                        remember: document.getElementById('remember').checked
+                    }));
+                    
+                    // Redirect to dashboard
+                    window.location.href = 'faculty_dashboard.html';
+                } else {
+                    // Show error
+                    errorMessage.classList.remove('hidden');
+                    
+                    // Reset button state
+                    signInBtn.disabled = false;
+                    signInText.textContent = 'Sign In';
+                    loadingIcon.classList.add('hidden');
+                    
+                    // Clear password field
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            }, 1500);
+        });
+
+        // Input validation
+        const emailInput = document.getElementById('email');
+        const inputs = [emailInput, passwordInput];
+
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.classList.remove('border-error-500');
+                    this.classList.add('border-border');
+                }
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.classList.add('border-error-500');
+                    this.classList.remove('border-border');
+                }
+            });
+        });
+
+        // Check if user is already logged in
+        window.addEventListener('load', function() {
+            const user = localStorage.getItem('facultyUser');
+            if (user) {
+                const userData = JSON.parse(user);
+                if (userData.remember) {
+                    window.location.href = 'faculty_dashboard.html';
+                }
+            }
+        });
+
+        // Auto-focus email field
+        document.addEventListener('DOMContentLoaded', function() {
+            emailInput.focus();
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

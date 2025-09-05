@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Dashboard | University Management System</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffacultypo9167back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-primary-50 via-background to-accent-50">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="relative bg-white shadow-academic border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Title -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center mr-3">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-semibold text-text-primary">Faculty Portal</h1>
+                        <p class="text-sm text-text-secondary">University Management System</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="faculty_dashboard.html" class="text-primary font-medium">Dashboard</a>
+                    <a href="course_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Courses</a>
+                    <a href="attendance_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Attendance</a>
+                    <a href="grade_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Grades</a>
+                    <a href="leave_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Leave</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications -->
+                    <button class="relative p-2 text-text-secondary hover:text-text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM10.5 3.5a6 6 0 0 1 6 6v2l1.5 3h-15l1.5-3v-2a6 6 0 0 1 6-6z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-error text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+
+                    <!-- Profile Dropdown -->
+                    <div class="relative">
+                        <button id="profileDropdown" class="flex items-center space-x-2 text-text-secondary hover:text-text-primary transition-colors">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Profile" class="w-8 h-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <span class="hidden sm:block">Dr. Sarah Johnson</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Dropdown Menu -->
+                        <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-academic-lg border border-border z-50">
+                            <div class="py-1">
+                                <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface hover:text-text-primary">Profile Settings</a>
+                                <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface hover:text-text-primary">Preferences</a>
+                                <hr class="my-1 border-border" />
+                                <a href="login.html" class="block px-4 py-2 text-sm text-error hover:bg-error-50">Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-text-primary mb-2">Welcome back, Dr. Johnson!</h2>
+            <p class="text-text-secondary">Today is Thursday, September 5, 2025 • Here's your academic overview</p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Today's Classes -->
+            <div class="card bg-gradient-to-r from-primary-50 to-primary-100 border-primary-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-primary-700">Today's Classes</p>
+                        <p class="text-2xl font-semibold text-primary-900">4</p>
+                        <p class="text-xs text-primary-600">Next: 2:00 PM</p>
+                    </div>
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Grades -->
+            <div class="card bg-gradient-to-r from-warning-50 to-warning-100 border-warning-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-warning-700">Pending Grades</p>
+                        <p class="text-2xl font-semibold text-warning-900">12</p>
+                        <p class="text-xs text-warning-600">Due: Tomorrow</p>
+                    </div>
+                    <div class="w-12 h-12 bg-warning rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unread Messages -->
+            <div class="card bg-gradient-to-r from-accent-50 to-accent-100 border-accent-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-accent-700">Unread Messages</p>
+                        <p class="text-2xl font-semibold text-accent-900">7</p>
+                        <p class="text-xs text-accent-600">3 urgent</p>
+                    </div>
+                    <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Papers -->
+            <div class="card bg-gradient-to-r from-success-50 to-success-100 border-success-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-success-700">Research Papers</p>
+                        <p class="text-2xl font-semibold text-success-900">3</p>
+                        <p class="text-xs text-success-600">In review</p>
+                    </div>
+                    <div class="w-12 h-12 bg-success rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Today's Schedule -->
+                <section class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary">Today's Schedule</h3>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">View Full Calendar</button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Schedule Item 1 -->
+                        <div class="flex items-center p-4 bg-primary-50 rounded-lg border-l-4 border-primary">
+                            <div class="flex-shrink-0 w-16 text-center">
+                                <p class="text-sm font-medium text-primary">2:00 PM</p>
+                                <p class="text-xs text-primary-600">90 min</p>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="text-sm font-medium text-text-primary">Advanced Computer Science</h4>
+                                <p class="text-sm text-text-secondary">Room 301 • 45 students</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="btn-primary text-xs px-3 py-1">Mark Attendance</button>
+                                <button class="btn-secondary text-xs px-3 py-1">View Details</button>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Item 2 -->
+                        <div class="flex items-center p-4 bg-surface rounded-lg border-l-4 border-secondary-300">
+                            <div class="flex-shrink-0 w-16 text-center">
+                                <p class="text-sm font-medium text-text-primary">4:00 PM</p>
+                                <p class="text-xs text-text-secondary">60 min</p>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="text-sm font-medium text-text-primary">Faculty Meeting</h4>
+                                <p class="text-sm text-text-secondary">Conference Room A • Department Head</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="btn-secondary text-xs px-3 py-1">Join Meeting</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Announcements -->
+                <section class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary">Recent Announcements</h3>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">View All</button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Announcement 1 -->
+                        <div class="p-4 bg-warning-50 rounded-lg border border-warning-200">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-2">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning-100 text-warning-800">
+                                            Important
+                                        </span>
+                                        <span class="ml-2 text-xs text-text-secondary">2 hours ago</span>
+                                    </div>
+                                    <h4 class="text-sm font-medium text-text-primary mb-1">Grade Submission Deadline</h4>
+                                    <p class="text-sm text-text-secondary">All mid-term grades must be submitted by September 8, 2025. Please ensure all assessments are completed.</p>
+                                </div>
+                                <button class="ml-4 text-text-secondary hover:text-text-primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Announcement 2 -->
+                        <div class="p-4 bg-accent-50 rounded-lg border border-accent-200">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-2">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-100 text-accent-800">
+                                            Info
+                                        </span>
+                                        <span class="ml-2 text-xs text-text-secondary">1 day ago</span>
+                                    </div>
+                                    <h4 class="text-sm font-medium text-text-primary mb-1">New Research Grant Available</h4>
+                                    <p class="text-sm text-text-secondary">Applications are now open for the 2025 Academic Research Excellence Grant. Deadline: October 15, 2025.</p>
+                                </div>
+                                <button class="ml-4 text-text-secondary hover:text-text-primary">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- Quick Actions -->
+                <section class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Quick Actions</h3>
+                    
+                    <div class="space-y-3">
+                        <a href="attendance_management.html" class="flex items-center p-3 bg-primary-50 hover:bg-primary-100 rounded-lg transition-colors group">
+                            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3 group-hover:scale-105 transition-transform">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-text-primary">Mark Attendance</p>
+                                <p class="text-xs text-text-secondary">Record student attendance</p>
+                            </div>
+                        </a>
+
+                        <a href="grade_management.html" class="flex items-center p-3 bg-warning-50 hover:bg-warning-100 rounded-lg transition-colors group">
+                            <div class="w-10 h-10 bg-warning rounded-lg flex items-center justify-center mr-3 group-hover:scale-105 transition-transform">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-text-primary">Enter Grades</p>
+                                <p class="text-xs text-text-secondary">Update student grades</p>
+                            </div>
+                        </a>
+
+                        <a href="course_management.html" class="flex items-center p-3 bg-accent-50 hover:bg-accent-100 rounded-lg transition-colors group">
+                            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mr-3 group-hover:scale-105 transition-transform">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-text-primary">Manage Courses</p>
+                                <p class="text-xs text-text-secondary">Course settings & materials</p>
+                            </div>
+                        </a>
+
+                        <a href="leave_management.html" class="flex items-center p-3 bg-success-50 hover:bg-success-100 rounded-lg transition-colors group">
+                            <div class="w-10 h-10 bg-success rounded-lg flex items-center justify-center mr-3 group-hover:scale-105 transition-transform">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-text-primary">Request Leave</p>
+                                <p class="text-xs text-text-secondary">Submit leave applications</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Recent Student Interactions -->
+                <section class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Recent Student Interactions</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Student 1 -->
+                        <div class="flex items-center p-3 bg-surface rounded-lg">
+                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Student" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-text-primary">Emily Chen</p>
+                                <p class="text-xs text-text-secondary">Asked about assignment deadline</p>
+                                <p class="text-xs text-text-secondary">2 hours ago</p>
+                            </div>
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>
+                        </div>
+
+                        <!-- Student 2 -->
+                        <div class="flex items-center p-3 bg-surface rounded-lg">
+                            <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_150.jpg" alt="Student" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-text-primary">Michael Rodriguez</p>
+                                <p class="text-xs text-text-secondary">Submitted research proposal</p>
+                                <p class="text-xs text-text-secondary">5 hours ago</p>
+                            </div>
+                        </div>
+
+                        <!-- Student 3 -->
+                        <div class="flex items-center p-3 bg-surface rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616c4e0d8b7?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Student" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-text-primary">Sarah Williams</p>
+                                <p class="text-xs text-text-secondary">Requested office hours meeting</p>
+                                <p class="text-xs text-text-secondary">1 day ago</p>
+                            </div>
+                            <span class="w-2 h-2 bg-warning rounded-full"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Research Status -->
+                <section class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Research Status</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Research Paper 1 -->
+                        <div class="p-3 bg-success-50 rounded-lg border border-success-200">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-success-100 text-success-800">
+                                    Under Review
+                                </span>
+                                <span class="text-xs text-text-secondary">IEEE Journal</span>
+                            </div>
+                            <h4 class="text-sm font-medium text-text-primary mb-1">Machine Learning Applications in Education</h4>
+                            <p class="text-xs text-text-secondary">Submitted: Aug 15, 2025</p>
+                        </div>
+
+                        <!-- Research Paper 2 -->
+                        <div class="p-3 bg-warning-50 rounded-lg border border-warning-200">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-warning-100 text-warning-800">
+                                    In Progress
+                                </span>
+                                <span class="text-xs text-text-secondary">ACM Conference</span>
+                            </div>
+                            <h4 class="text-sm font-medium text-text-primary mb-1">Data Structures Optimization</h4>
+                            <p class="text-xs text-text-secondary">Due: Oct 30, 2025</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-border shadow-academic-lg">
+        <div class="flex justify-around py-2">
+            <a href="faculty_dashboard.html" class="flex flex-col items-center py-2 px-3 text-primary">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                </svg>
+                <span class="text-xs mt-1">Dashboard</span>
+            </a>
+            <a href="course_management.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                <span class="text-xs mt-1">Courses</span>
+            </a>
+            <a href="attendance_management.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-xs mt-1">Attendance</span>
+            </a>
+            <a href="grade_management.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                </svg>
+                <span class="text-xs mt-1">Grades</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        // Profile dropdown functionality
+        const profileDropdown = document.getElementById('profileDropdown');
+        const profileMenu = document.getElementById('profileMenu');
+
+        profileDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profileMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            profileMenu.classList.add('hidden');
+        });
+
+        // Real-time updates simulation
+        function updateNotifications() {
+            const notificationBadge = document.querySelector('.bg-error');
+            let count = parseInt(notificationBadge.textContent);
+            
+            // Simulate new notifications
+            setInterval(() => {
+                if (Math.random() > 0.8) {
+                    count++;
+                    notificationBadge.textContent = count;
+                    
+                    // Show brief animation
+                    notificationBadge.classList.add('animate-pulse');
+                    setTimeout(() => {
+                        notificationBadge.classList.remove('animate-pulse');
+                    }, 1000);
+                }
+            }, 30000); // Check every 30 seconds
+        }
+
+        // Auto-refresh dashboard data
+        function refreshDashboard() {
+            // Simulate data refresh
+            console.log('Dashboard data refreshed at:', new Date().toLocaleTimeString());
+            
+            // Update timestamps
+            const timeElements = document.querySelectorAll('[data-time]');
+            timeElements.forEach(element => {
+                // Update relative time displays
+                const time = element.getAttribute('data-time');
+                if (time) {
+                    element.textContent = formatRelativeTime(new Date(time));
+                }
+            });
+        }
+
+        // Format relative time
+        function formatRelativeTime(date) {
+            const now = new Date();
+            const diff = now - date;
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+            
+            if (minutes < 60) return `${minutes} minutes ago`;
+            if (hours < 24) return `${hours} hours ago`;
+            return `${days} days ago`;
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNotifications();
+            
+            // Refresh dashboard every 5 minutes
+            setInterval(refreshDashboard, 300000);
+            
+            // Check authentication
+            const user = localStorage.getItem('facultyUser');
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Update user info
+            const userData = JSON.parse(user);
+            console.log('Welcome,', userData.email);
+        });
+
+        // Quick action handlers
+        document.querySelectorAll('[data-action]').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.getAttribute('data-action');
+                console.log('Quick action:', action);
+                
+                // Add visual feedback
+                this.classList.add('scale-95');
+                setTimeout(() => {
+                    this.classList.remove('scale-95');
+                }, 150);
+            });
+        });
+
+        // Expandable announcement cards
+        document.querySelectorAll('.announcement-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const content = this.querySelector('.announcement-content');
+                if (content) {
+                    content.classList.toggle('hidden');
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

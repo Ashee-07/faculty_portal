@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leave Management | Faculty Portal</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffacultypo9167back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-primary-50 via-background to-accent-50">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="relative bg-white shadow-academic border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Title -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-semibold text-text-primary">Faculty Portal</h1>
+                        <p class="text-sm text-text-secondary">Leave Management</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="faculty_dashboard.html" class="text-text-secondary hover:text-text-primary transition-colors">Dashboard</a>
+                    <a href="course_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Courses</a>
+                    <a href="attendance_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Attendance</a>
+                    <a href="grade_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Grades</a>
+                    <a href="leave_management.html" class="text-primary font-medium">Leave</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-text-secondary hover:text-text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12h5v12z"/>
+                        </svg>
+                    </button>
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm font-medium">JD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-3xl font-semibold text-text-primary mb-2">Leave Management</h2>
+                    <p class="text-text-secondary">Submit leave applications and track approval status</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-text-secondary">
+                        <span class="font-medium">Available Days:</span> 18 of 25
+                    </div>
+                    <button id="viewCalendarBtn" class="btn-secondary flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>View Calendar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Leave Application Form -->
+            <div class="lg:col-span-2">
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold text-text-primary">Submit Leave Application</h3>
+                        <div class="flex items-center space-x-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Auto-save enabled</span>
+                        </div>
+                    </div>
+
+                    <form id="leaveApplicationForm" class="space-y-6">
+                        <!-- Leave Type -->
+                        <div>
+                            <label for="leaveType" class="form-label">Leave Type *</label>
+                            <select id="leaveType" name="leaveType" class="form-input" required>
+                                <option value>Select leave type</option>
+                                <option value="sick">Sick Leave</option>
+                                <option value="vacation">Vacation Leave</option>
+                                <option value="conference">Conference/Training</option>
+                                <option value="sabbatical">Sabbatical Leave</option>
+                                <option value="personal">Personal Leave</option>
+                                <option value="emergency">Emergency Leave</option>
+                            </select>
+                        </div>
+
+                        <!-- Date Range -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="startDate" class="form-label">Start Date *</label>
+                                <input type="date" id="startDate" name="startDate" class="form-input" required />
+                            </div>
+                            <div>
+                                <label for="endDate" class="form-label">End Date *</label>
+                                <input type="date" id="endDate" name="endDate" class="form-input" required />
+                            </div>
+                        </div>
+
+                        <!-- Duration Display -->
+                        <div id="durationDisplay" class="hidden p-4 bg-accent-50 rounded-lg border border-accent-100">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="text-accent-800 font-medium">Duration: <span id="durationText">0 days</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Reason -->
+                        <div>
+                            <label for="reason" class="form-label">Reason for Leave *</label>
+                            <textarea id="reason" name="reason" rows="4" class="form-input resize-none" placeholder="Please provide a detailed reason for your leave request..." required></textarea>
+                            <div class="mt-1 text-sm text-text-secondary">
+                                <span id="reasonCount">0</span>/500 characters
+                            </div>
+                        </div>
+
+                        <!-- Supporting Documents -->
+                        <div>
+                            <label class="form-label">Supporting Documents</label>
+                            <div class="mt-2 border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary-300 transition-colors">
+                                <input type="file" id="documents" name="documents" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="hidden" />
+                                <label for="documents" class="cursor-pointer">
+                                    <svg class="mx-auto h-12 w-12 text-text-secondary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                    </svg>
+                                    <div class="text-text-primary font-medium mb-1">Click to upload documents</div>
+                                    <div class="text-sm text-text-secondary">PDF, DOC, DOCX, JPG, PNG up to 10MB each</div>
+                                </label>
+                            </div>
+                            <div id="fileList" class="mt-4 space-y-2"></div>
+                        </div>
+
+                        <!-- Emergency Contact -->
+                        <div id="emergencyContact" class="hidden space-y-4">
+                            <h4 class="font-medium text-text-primary">Emergency Contact Information</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="emergencyName" class="form-label">Contact Name</label>
+                                    <input type="text" id="emergencyName" name="emergencyName" class="form-input" placeholder="Full name" />
+                                </div>
+                                <div>
+                                    <label for="emergencyPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="emergencyPhone" name="emergencyPhone" class="form-input" placeholder="(555) 123-4567" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="flex items-center justify-between pt-6 border-t border-border">
+                            <button type="button" id="saveDraftBtn" class="btn-secondary">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                                Save Draft
+                            </button>
+                            <div class="flex items-center space-x-3">
+                                <button type="button" id="previewBtn" class="btn-secondary">Preview</button>
+                                <button type="submit" class="btn-primary">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                    </svg>
+                                    Submit Application
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <!-- Quick Stats -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Leave Balance</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Vacation Days</span>
+                            <span class="font-medium text-text-primary">12/20</span>
+                        </div>
+                        <div class="w-full bg-secondary-100 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Sick Days</span>
+                            <span class="font-medium text-text-primary">6/10</span>
+                        </div>
+                        <div class="w-full bg-secondary-100 rounded-full h-2">
+                            <div class="bg-success-500 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Personal Days</span>
+                            <span class="font-medium text-text-primary">0/5</span>
+                        </div>
+                        <div class="w-full bg-secondary-100 rounded-full h-2">
+                            <div class="bg-warning-500 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Leave -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Upcoming Leave</h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-success-50 rounded-lg border border-success-200">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm font-medium text-success-800">Conference</span>
+                                <span class="text-xs text-success-600">Approved</span>
+                            </div>
+                            <div class="text-sm text-success-700">Dec 15-17, 2025</div>
+                        </div>
+                        
+                        <div class="p-3 bg-warning-50 rounded-lg border border-warning-200">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm font-medium text-warning-800">Vacation</span>
+                                <span class="text-xs text-warning-600">Pending</span>
+                            </div>
+                            <div class="text-sm text-warning-700">Jan 2-5, 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Quick Actions</h3>
+                    <div class="space-y-3">
+                        <button class="w-full btn-secondary text-left justify-start">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            View Leave Policy
+                        </button>
+                        <button class="w-full btn-secondary text-left justify-start">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Leave History
+                        </button>
+                        <button class="w-full btn-secondary text-left justify-start">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Contact HR
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leave Status Table -->
+        <div class="mt-12">
+            <div class="card">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-semibold text-text-primary">Leave Applications</h3>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <label for="statusFilter" class="text-sm text-text-secondary">Filter:</label>
+                            <select id="statusFilter" class="form-input py-1 text-sm">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="denied">Denied</option>
+                            </select>
+                        </div>
+                        <button class="btn-secondary text-sm">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop Table -->
+                <div class="hidden md:block overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-border">
+                                <th class="table-header text-left">Application ID</th>
+                                <th class="table-header text-left">Leave Type</th>
+                                <th class="table-header text-left">Date Range</th>
+                                <th class="table-header text-left">Duration</th>
+                                <th class="table-header text-left">Status</th>
+                                <th class="table-header text-left">Submitted</th>
+                                <th class="table-header text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaveTableBody">
+                            <tr class="hover:bg-surface transition-colors">
+                                <td class="table-cell font-mono text-sm">#LA-2025-001</td>
+                                <td class="table-cell">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-warning-500 rounded-full"></div>
+                                        <span>Conference</span>
+                                    </div>
+                                </td>
+                                <td class="table-cell">Dec 15-17, 2025</td>
+                                <td class="table-cell">3 days</td>
+                                <td class="table-cell">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-100 text-success-800">
+                                        Approved
+                                    </span>
+                                </td>
+                                <td class="table-cell text-text-secondary">Nov 28, 2025</td>
+                                <td class="table-cell">
+                                    <button class="text-primary hover:text-primary-700 text-sm font-medium">View</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface transition-colors">
+                                <td class="table-cell font-mono text-sm">#LA-2025-002</td>
+                                <td class="table-cell">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                                        <span>Vacation</span>
+                                    </div>
+                                </td>
+                                <td class="table-cell">Jan 2-5, 2026</td>
+                                <td class="table-cell">4 days</td>
+                                <td class="table-cell">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning-100 text-warning-800">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="table-cell text-text-secondary">Dec 1, 2025</td>
+                                <td class="table-cell">
+                                    <button class="text-primary hover:text-primary-700 text-sm font-medium mr-3">View</button>
+                                    <button class="text-error-600 hover:text-error-700 text-sm font-medium">Cancel</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface transition-colors">
+                                <td class="table-cell font-mono text-sm">#LA-2025-003</td>
+                                <td class="table-cell">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-2 h-2 bg-success-500 rounded-full"></div>
+                                        <span>Sick Leave</span>
+                                    </div>
+                                </td>
+                                <td class="table-cell">Nov 20-22, 2025</td>
+                                <td class="table-cell">3 days</td>
+                                <td class="table-cell">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error-100 text-error-800">
+                                        Denied
+                                    </span>
+                                </td>
+                                <td class="table-cell text-text-secondary">Nov 18, 2025</td>
+                                <td class="table-cell">
+                                    <button class="text-primary hover:text-primary-700 text-sm font-medium">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile Cards -->
+                <div class="md:hidden space-y-4">
+                    <div class="p-4 border border-border rounded-lg">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-mono text-sm text-text-secondary">#LA-2025-001</span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-100 text-success-800">
+                                Approved
+                            </span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Type:</span>
+                                <span class="text-text-primary">Conference</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Dates:</span>
+                                <span class="text-text-primary">Dec 15-17, 2025</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Duration:</span>
+                                <span class="text-text-primary">3 days</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-border">
+                            <button class="text-primary hover:text-primary-700 text-sm font-medium">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-6 flex items-center justify-between">
+                    <div class="text-sm text-text-secondary">
+                        Showing 1-3 of 3 applications
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-3 py-1 text-sm border border-border rounded hover:bg-surface transition-colors" disabled>
+                            Previous
+                        </button>
+                        <button class="px-3 py-1 text-sm bg-primary text-white rounded">1</button>
+                        <button class="px-3 py-1 text-sm border border-border rounded hover:bg-surface transition-colors" disabled>
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-academic-xl">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Application Submitted</h3>
+                <p class="text-text-secondary mb-6">Your leave application has been submitted successfully and is pending approval.</p>
+                <div class="flex items-center justify-center space-x-3">
+                    <button id="closeModalBtn" class="btn-secondary">Close</button>
+                    <button class="btn-primary">View Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Form elements
+        const leaveForm = document.getElementById('leaveApplicationForm');
+        const leaveTypeSelect = document.getElementById('leaveType');
+        const startDateInput = document.getElementById('startDate');
+        const endDateInput = document.getElementById('endDate');
+        const reasonTextarea = document.getElementById('reason');
+        const reasonCount = document.getElementById('reasonCount');
+        const durationDisplay = document.getElementById('durationDisplay');
+        const durationText = document.getElementById('durationText');
+        const emergencyContact = document.getElementById('emergencyContact');
+        const documentsInput = document.getElementById('documents');
+        const fileList = document.getElementById('fileList');
+        const successModal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        startDateInput.min = today;
+        endDateInput.min = today;
+
+        // Leave type change handler
+        leaveTypeSelect.addEventListener('change', function() {
+            if (this.value === 'emergency') {
+                emergencyContact.classList.remove('hidden');
+            } else {
+                emergencyContact.classList.add('hidden');
+            }
+        });
+
+        // Date change handlers
+        function calculateDuration() {
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+            
+            if (startDate && endDate && endDate >= startDate) {
+                const timeDiff = endDate.getTime() - startDate.getTime();
+                const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)) + 1;
+                
+                durationText.textContent = `${dayDiff} day${dayDiff !== 1 ? 's' : ''}`;
+                durationDisplay.classList.remove('hidden');
+            } else {
+                durationDisplay.classList.add('hidden');
+            }
+        }
+
+        startDateInput.addEventListener('change', function() {
+            endDateInput.min = this.value;
+            calculateDuration();
+        });
+
+        endDateInput.addEventListener('change', calculateDuration);
+
+        // Reason character counter
+        reasonTextarea.addEventListener('input', function() {
+            const count = this.value.length;
+            reasonCount.textContent = count;
+            
+            if (count > 500) {
+                this.value = this.value.substring(0, 500);
+                reasonCount.textContent = 500;
+            }
+        });
+
+        // File upload handler
+        documentsInput.addEventListener('change', function() {
+            fileList.innerHTML = '';
+            
+            Array.from(this.files).forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'flex items-center justify-between p-3 bg-surface rounded-lg border border-border';
+                
+                fileItem.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <div>
+                            <div class="text-sm font-medium text-text-primary">${file.name}</div>
+                            <div class="text-xs text-text-secondary">${(file.size / 1024 / 1024).toFixed(2)} MB</div>
+                        </div>
+                    </div>
+                    <button type="button" class="text-error-600 hover:text-error-700" onclick="removeFile(${index})">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                `;
+                
+                fileList.appendChild(fileItem);
+            });
+        });
+
+        // Remove file function
+        function removeFile(index) {
+            const dt = new DataTransfer();
+            const files = Array.from(documentsInput.files);
+            
+            files.forEach((file, i) => {
+                if (i !== index) {
+                    dt.items.add(file);
+                }
+            });
+            
+            documentsInput.files = dt.files;
+            documentsInput.dispatchEvent(new Event('change'));
+        }
+
+        // Form submission
+        leaveForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            if (!leaveTypeSelect.value || !startDateInput.value || !endDateInput.value || !reasonTextarea.value.trim()) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            setTimeout(() => {
+                successModal.classList.remove('hidden');
+                leaveForm.reset();
+                fileList.innerHTML = '';
+                durationDisplay.classList.add('hidden');
+                emergencyContact.classList.add('hidden');
+                reasonCount.textContent = '0';
+            }, 1000);
+        });
+
+        // Close modal
+        closeModalBtn.addEventListener('click', function() {
+            successModal.classList.add('hidden');
+        });
+
+        // Save draft functionality
+        document.getElementById('saveDraftBtn').addEventListener('click', function() {
+            const formData = new FormData(leaveForm);
+            const draftData = Object.fromEntries(formData.entries());
+            
+            localStorage.setItem('leaveDraft', JSON.stringify(draftData));
+            
+            // Show temporary success message
+            const originalText = this.textContent;
+            this.textContent = 'Saved!';
+            this.classList.add('bg-success-100', 'text-success-800');
+            
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.classList.remove('bg-success-100', 'text-success-800');
+            }, 2000);
+        });
+
+        // Load draft on page load
+        window.addEventListener('load', function() {
+            const savedDraft = localStorage.getItem('leaveDraft');
+            if (savedDraft) {
+                const draftData = JSON.parse(savedDraft);
+                
+                Object.keys(draftData).forEach(key => {
+                    const element = document.querySelector(`[name="${key}"]`);
+                    if (element) {
+                        element.value = draftData[key];
+                        if (element.type === 'textarea') {
+                            element.dispatchEvent(new Event('input'));
+                        }
+                    }
+                });
+                
+                calculateDuration();
+            }
+        });
+
+        // Status filter
+        document.getElementById('statusFilter').addEventListener('change', function() {
+            const filterValue = this.value;
+            const rows = document.querySelectorAll('#leaveTableBody tr');
+            
+            rows.forEach(row => {
+                const statusCell = row.querySelector('.table-cell:nth-child(5)');
+                if (statusCell) {
+                    const status = statusCell.textContent.trim().toLowerCase();
+                    
+                    if (filterValue === 'all' || status.includes(filterValue)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Auto-save functionality
+        let autoSaveTimeout;
+        const formInputs = leaveForm.querySelectorAll('input, select, textarea');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                clearTimeout(autoSaveTimeout);
+                autoSaveTimeout = setTimeout(() => {
+                    document.getElementById('saveDraftBtn').click();
+                }, 5000); // Auto-save after 5 seconds of inactivity
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

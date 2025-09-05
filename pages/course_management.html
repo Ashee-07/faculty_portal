@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Management | Faculty Portal</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffacultypo9167back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="bg-surface border-b border-border shadow-academic">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Title -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h1 class="text-xl font-semibold text-text-primary">Faculty Portal</h1>
+                        <p class="text-sm text-text-secondary">Course Management</p>
+                    </div>
+                </div>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-text-secondary hover:text-text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"/>
+                        </svg>
+                    </button>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Faculty Profile" class="w-8 h-8 rounded-full object-cover" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150'; this.onerror=null;" />
+                        <span class="text-sm font-medium text-text-primary">Dr. Sarah Johnson</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-surface border-r border-border shadow-academic">
+            <nav class="mt-8 px-4">
+                <div class="space-y-2">
+                    <a href="faculty_dashboard.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v3H8V5z"/>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="course_management.html" class="sidebar-nav-item active">
+                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Course Management
+                    </a>
+                    <a href="attendance_management.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                        Attendance
+                    </a>
+                    <a href="grade_management.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        Grade Management
+                    </a>
+                    <a href="leave_management.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0V6a2 2 0 112 0v1m-6 0h12l-1 12a2 2 0 01-2 2H7a2 2 0 01-2-2L4 7z"/>
+                        </svg>
+                        Leave Management
+                    </a>
+                </div>
+
+                <!-- Logout -->
+                <div class="mt-8 pt-8 border-t border-border">
+                    <a href="login.html" class="sidebar-nav-item text-error-600 hover:text-error-700 hover:bg-error-50">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                        </svg>
+                        Logout
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-hidden">
+            <div class="p-8">
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-3xl font-semibold text-text-primary">Course Management</h2>
+                            <p class="text-text-secondary mt-2">Manage your courses, enrollment, and materials</p>
+                        </div>
+                        <button id="createCourseBtn" class="btn-primary px-6 py-3 shadow-academic-lg hover:shadow-academic-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                            <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            Create New Course
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="mb-6">
+                    <div class="border-b border-border">
+                        <nav class="-mb-px flex space-x-8" id="tabNavigation">
+                            <button class="tab-button active" data-tab="courses">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 00-2 2v2m0 0V9a2 2 0 012-2h14a2 2 0 012 2v2M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/>
+                                </svg>
+                                Course List
+                            </button>
+                            <button class="tab-button" data-tab="details">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                                Course Details
+                            </button>
+                            <button class="tab-button" data-tab="enrollment">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                                Enrollment
+                            </button>
+                            <button class="tab-button" data-tab="materials">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                                Materials
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Course List Tab -->
+                    <div id="courses-tab" class="tab-panel active">
+                        <!-- Search and Filter Bar -->
+                        <div class="mb-6 flex flex-col sm:flex-row gap-4">
+                            <div class="flex-1">
+                                <div class="relative">
+                                    <input type="text" id="courseSearch" placeholder="Search courses..." class="form-input pl-10 w-full" />
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <select id="semesterFilter" class="form-input">
+                                    <option value>All Semesters</option>
+                                    <option value="Fall 2024">Fall 2024</option>
+                                    <option value="Spring 2025">Spring 2025</option>
+                                    <option value="Summer 2025">Summer 2025</option>
+                                </select>
+                                <select id="statusFilter" class="form-input">
+                                    <option value>All Status</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Draft">Draft</option>
+                                    <option value="Archived">Archived</option>
+                                </select>
+                                <button id="resetFilters" class="btn-secondary px-4 py-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Course Table -->
+                        <div class="card overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-border">
+                                    <thead class="bg-surface">
+                                        <tr>
+                                            <th class="table-header cursor-pointer hover:bg-secondary-100 transition-colors" data-sort="name">
+                                                <div class="flex items-center">
+                                                    Course Name
+                                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                                    </svg>
+                                                </div>
+                                            </th>
+                                            <th class="table-header cursor-pointer hover:bg-secondary-100 transition-colors" data-sort="code">
+                                                <div class="flex items-center">
+                                                    Course Code
+                                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                                    </svg>
+                                                </div>
+                                            </th>
+                                            <th class="table-header cursor-pointer hover:bg-secondary-100 transition-colors" data-sort="semester">
+                                                <div class="flex items-center">
+                                                    Semester
+                                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                                    </svg>
+                                                </div>
+                                            </th>
+                                            <th class="table-header cursor-pointer hover:bg-secondary-100 transition-colors" data-sort="enrollment">
+                                                <div class="flex items-center">
+                                                    Enrollment
+                                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                                                    </svg>
+                                                </div>
+                                            </th>
+                                            <th class="table-header">Status</th>
+                                            <th class="table-header">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="courseTableBody" class="bg-background divide-y divide-border-light">
+                                        <!-- Course rows will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Details Tab -->
+                    <div id="details-tab" class="tab-panel">
+                        <div class="card">
+                            <h3 class="text-lg font-semibold text-text-primary mb-6">Course Information</h3>
+                            <form id="courseDetailsForm" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="courseName" class="form-label">Course Name *</label>
+                                        <input type="text" id="courseName" name="courseName" class="form-input" required />
+                                    </div>
+                                    <div>
+                                        <label for="courseCode" class="form-label">Course Code *</label>
+                                        <input type="text" id="courseCode" name="courseCode" class="form-input" required />
+                                    </div>
+                                    <div>
+                                        <label for="credits" class="form-label">Credits *</label>
+                                        <select id="credits" name="credits" class="form-input" required>
+                                            <option value>Select Credits</option>
+                                            <option value="1">1 Credit</option>
+                                            <option value="2">2 Credits</option>
+                                            <option value="3">3 Credits</option>
+                                            <option value="4">4 Credits</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="semester" class="form-label">Semester *</label>
+                                        <select id="semester" name="semester" class="form-input" required>
+                                            <option value>Select Semester</option>
+                                            <option value="Fall 2024">Fall 2024</option>
+                                            <option value="Spring 2025">Spring 2025</option>
+                                            <option value="Summer 2025">Summer 2025</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="courseDescription" class="form-label">Course Description</label>
+                                    <textarea id="courseDescription" name="courseDescription" rows="4" class="form-input" placeholder="Enter course description..."></textarea>
+                                </div>
+
+                                <div>
+                                    <label for="prerequisites" class="form-label">Prerequisites</label>
+                                    <input type="text" id="prerequisites" name="prerequisites" class="form-input" placeholder="e.g., MATH 101, PHYS 201" />
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div>
+                                        <label for="maxEnrollment" class="form-label">Max Enrollment</label>
+                                        <input type="number" id="maxEnrollment" name="maxEnrollment" class="form-input" min="1" max="500" />
+                                    </div>
+                                    <div>
+                                        <label for="location" class="form-label">Location</label>
+                                        <input type="text" id="location" name="location" class="form-input" placeholder="e.g., Room 101" />
+                                    </div>
+                                    <div>
+                                        <label for="schedule" class="form-label">Schedule</label>
+                                        <input type="text" id="schedule" name="schedule" class="form-input" placeholder="e.g., MWF 10:00-11:00" />
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-end space-x-4">
+                                    <button type="button" class="btn-secondary">Cancel</button>
+                                    <button type="submit" class="btn-primary">Save Course</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Enrollment Tab -->
+                    <div id="enrollment-tab" class="tab-panel">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <!-- Enrollment Stats -->
+                            <div class="lg:col-span-1">
+                                <div class="card">
+                                    <h3 class="text-lg font-semibold text-text-primary mb-4">Enrollment Overview</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-text-secondary">Total Enrolled:</span>
+                                            <span class="font-semibold text-text-primary">28</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-text-secondary">Max Capacity:</span>
+                                            <span class="font-semibold text-text-primary">35</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-text-secondary">Waitlist:</span>
+                                            <span class="font-semibold text-warning-600">3</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-text-secondary">Available Spots:</span>
+                                            <span class="font-semibold text-success-600">7</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Progress Bar -->
+                                    <div class="mt-6">
+                                        <div class="flex justify-between text-sm text-text-secondary mb-2">
+                                            <span>Enrollment Progress</span>
+                                            <span>80%</span>
+                                        </div>
+                                        <div class="w-full bg-secondary-200 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Student List -->
+                            <div class="lg:col-span-2">
+                                <div class="card">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-lg font-semibold text-text-primary">Enrolled Students</h3>
+                                        <div class="flex space-x-2">
+                                            <button class="btn-secondary text-sm">Export List</button>
+                                            <button class="btn-primary text-sm">Add Student</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-border">
+                                            <thead class="bg-surface">
+                                                <tr>
+                                                    <th class="table-header">Student ID</th>
+                                                    <th class="table-header">Name</th>
+                                                    <th class="table-header">Email</th>
+                                                    <th class="table-header">Status</th>
+                                                    <th class="table-header">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-background divide-y divide-border-light">
+                                                <tr>
+                                                    <td class="table-cell">STU001</td>
+                                                    <td class="table-cell">
+                                                        <div class="flex items-center">
+                                                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40" alt="Student" class="w-8 h-8 rounded-full mr-3 object-cover" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616c9c0e5c5?q=80&w=40&auto=format&fit=crop'; this.onerror=null;" />
+                                                            <span class="font-medium">Emily Chen</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="table-cell">emily.chen@student.edu</td>
+                                                    <td class="table-cell">
+                                                        <span class="inline-flex px-2 py-1 text-xs font-medium bg-success-100 text-success-800 rounded-full">
+                                                            Enrolled
+                                                        </span>
+                                                    </td>
+                                                    <td class="table-cell">
+                                                        <button class="text-text-secondary hover:text-text-primary">
+                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                                            </svg>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="table-cell">STU002</td>
+                                                    <td class="table-cell">
+                                                        <div class="flex items-center">
+                                                            <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg" alt="Student" class="w-8 h-8 rounded-full mr-3 object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=40&auto=format&fit=crop'; this.onerror=null;" />
+                                                            <span class="font-medium">Michael Rodriguez</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="table-cell">michael.rodriguez@student.edu</td>
+                                                    <td class="table-cell">
+                                                        <span class="inline-flex px-2 py-1 text-xs font-medium bg-warning-100 text-warning-800 rounded-full">
+                                                            Waitlist
+                                                        </span>
+                                                    </td>
+                                                    <td class="table-cell">
+                                                        <button class="text-text-secondary hover:text-text-primary">
+                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                                            </svg>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Materials Tab -->
+                    <div id="materials-tab" class="tab-panel">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <!-- Upload Area -->
+                            <div class="card">
+                                <h3 class="text-lg font-semibold text-text-primary mb-4">Upload Course Materials</h3>
+                                
+                                <!-- Drag and Drop Area -->
+                                <div id="dropZone" class="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer">
+                                    <svg class="w-12 h-12 text-text-secondary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                    </svg>
+                                    <p class="text-text-primary font-medium mb-2">Drop files here or click to upload</p>
+                                    <p class="text-text-secondary text-sm">Supports PDF, DOC, DOCX, PPT, PPTX (Max 10MB)</p>
+                                    <input type="file" id="fileInput" class="hidden" multiple accept=".pdf,.doc,.docx,.ppt,.pptx" />
+                                </div>
+
+                                <div class="mt-4">
+                                    <label for="materialType" class="form-label">Material Type</label>
+                                    <select id="materialType" class="form-input">
+                                        <option value="syllabus">Syllabus</option>
+                                        <option value="lecture">Lecture Notes</option>
+                                        <option value="assignment">Assignment</option>
+                                        <option value="reading">Reading Material</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <button class="btn-primary w-full mt-4">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                    </svg>
+                                    Upload Materials
+                                </button>
+                            </div>
+
+                            <!-- Materials List -->
+                            <div class="card">
+                                <h3 class="text-lg font-semibold text-text-primary mb-4">Course Materials</h3>
+                                
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 bg-surface rounded-lg border border-border">
+                                        <div class="flex items-center">
+                                            <svg class="w-8 h-8 text-error-600 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                            </svg>
+                                            <div>
+                                                <p class="font-medium text-text-primary">Course Syllabus.pdf</p>
+                                                <p class="text-sm text-text-secondary">Uploaded on Sep 1, 2025 • 2.3 MB</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-text-secondary hover:text-primary">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                                </svg>
+                                            </button>
+                                            <button class="text-text-secondary hover:text-error-600">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between p-3 bg-surface rounded-lg border border-border">
+                                        <div class="flex items-center">
+                                            <svg class="w-8 h-8 text-primary mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                            </svg>
+                                            <div>
+                                                <p class="font-medium text-text-primary">Lecture 1 - Introduction.pptx</p>
+                                                <p class="text-sm text-text-secondary">Uploaded on Sep 3, 2025 • 5.7 MB</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-text-secondary hover:text-primary">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                                </svg>
+                                            </button>
+                                            <button class="text-text-secondary hover:text-error-600">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Course Modal -->
+    <div id="createCourseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-background rounded-lg shadow-academic-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold text-text-primary">Create New Course</h3>
+                    <button id="closeModal" class="text-text-secondary hover:text-text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <form id="createCourseForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="newCourseName" class="form-label">Course Name *</label>
+                            <input type="text" id="newCourseName" name="courseName" class="form-input" required />
+                        </div>
+                        <div>
+                            <label for="newCourseCode" class="form-label">Course Code *</label>
+                            <input type="text" id="newCourseCode" name="courseCode" class="form-input" required />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="newCredits" class="form-label">Credits *</label>
+                            <select id="newCredits" name="credits" class="form-input" required>
+                                <option value>Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="newSemester" class="form-label">Semester *</label>
+                            <select id="newSemester" name="semester" class="form-input" required>
+                                <option value>Select</option>
+                                <option value="Fall 2024">Fall 2024</option>
+                                <option value="Spring 2025">Spring 2025</option>
+                                <option value="Summer 2025">Summer 2025</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="newMaxEnrollment" class="form-label">Max Enrollment</label>
+                            <input type="number" id="newMaxEnrollment" name="maxEnrollment" class="form-input" min="1" max="500" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="newDescription" class="form-label">Description</label>
+                        <textarea id="newDescription" name="description" rows="3" class="form-input"></textarea>
+                    </div>
+
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" id="cancelCreate" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">Create Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample course data
+        let courses = [
+            {
+                id: 1,
+                name: "Introduction to Computer Science",
+                code: "CS101",
+                semester: "Fall 2024",
+                enrollment: 28,
+                maxEnrollment: 35,
+                status: "Active",
+                credits: 3,
+                description: "Fundamental concepts of computer science and programming.",
+                prerequisites: "None",
+                location: "Room 101",
+                schedule: "MWF 10:00-11:00"
+            },
+            {
+                id: 2,
+                name: "Data Structures and Algorithms",
+                code: "CS201",
+                semester: "Spring 2025",
+                enrollment: 22,
+                maxEnrollment: 30,
+                status: "Active",
+                credits: 4,
+                description: "Advanced data structures and algorithmic problem solving.",
+                prerequisites: "CS101",
+                location: "Room 205",
+                schedule: "TTh 2:00-4:00"
+            },
+            {
+                id: 3,
+                name: "Database Systems",
+                code: "CS301",
+                semester: "Fall 2024",
+                enrollment: 15,
+                maxEnrollment: 25,
+                status: "Draft",
+                credits: 3,
+                description: "Design and implementation of database systems.",
+                prerequisites: "CS201",
+                location: "Lab 301",
+                schedule: "MW 1:00-2:30"
+            }
+        ];
+
+        let filteredCourses = [...courses];
+        let sortDirection = 'asc';
+        let sortColumn = '';
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Update active tab button
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Update active tab panel
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+
+        // Render course table
+        function renderCourseTable() {
+            const tbody = document.getElementById('courseTableBody');
+            tbody.innerHTML = '';
+
+            filteredCourses.forEach(course => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="table-cell">
+                        <div class="font-medium text-text-primary">${course.name}</div>
+                        <div class="text-sm text-text-secondary">${course.description}</div>
+                    </td>
+                    <td class="table-cell">
+                        <span class="font-mono text-sm bg-secondary-100 px-2 py-1 rounded">${course.code}</span>
+                    </td>
+                    <td class="table-cell">${course.semester}</td>
+                    <td class="table-cell">
+                        <div class="flex items-center">
+                            <span class="mr-2">${course.enrollment}/${course.maxEnrollment}</span>
+                            <div class="w-16 bg-secondary-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: ${(course.enrollment / course.maxEnrollment) * 100}%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <span class="inline-flex px-2 py-1 text-xs font-medium rounded-full ${getStatusClass(course.status)}">
+                            ${course.status}
+                        </span>
+                    </td>
+                    <td class="table-cell">
+                        <div class="flex space-x-2">
+                            <button onclick="editCourse(${course.id})" class="text-primary hover:text-primary-700 transition-colors" title="Edit">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                            </button>
+                            <button onclick="viewEnrollment(${course.id})" class="text-accent hover:text-accent-600 transition-colors" title="View Enrollment">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </button>
+                            <button onclick="manageMaterials(${course.id})" class="text-secondary hover:text-text-primary transition-colors" title="Manage Materials">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function getStatusClass(status) {
+            switch (status) {
+                case 'Active':
+                    return 'bg-success-100 text-success-800';
+                case 'Draft':
+                    return 'bg-warning-100 text-warning-800';
+                case 'Archived':
+                    return 'bg-secondary-100 text-secondary-800';
+                default:
+                    return 'bg-secondary-100 text-secondary-800';
+            }
+        }
+
+        // Search functionality
+        document.getElementById('courseSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            filteredCourses = courses.filter(course => 
+                course.name.toLowerCase().includes(searchTerm) ||
+                course.code.toLowerCase().includes(searchTerm) ||
+                course.description.toLowerCase().includes(searchTerm)
+            );
+            renderCourseTable();
+        });
+
+        // Filter functionality
+        document.getElementById('semesterFilter').addEventListener('change', function(e) {
+            applyFilters();
+        });
+
+        document.getElementById('statusFilter').addEventListener('change', function(e) {
+            applyFilters();
+        });
+
+        function applyFilters() {
+            const semesterFilter = document.getElementById('semesterFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const searchTerm = document.getElementById('courseSearch').value.toLowerCase();
+
+            filteredCourses = courses.filter(course => {
+                const matchesSearch = course.name.toLowerCase().includes(searchTerm) ||
+                                    course.code.toLowerCase().includes(searchTerm) ||
+                                    course.description.toLowerCase().includes(searchTerm);
+                const matchesSemester = !semesterFilter || course.semester === semesterFilter;
+                const matchesStatus = !statusFilter || course.status === statusFilter;
+                
+                return matchesSearch && matchesSemester && matchesStatus;
+            });
+            
+            renderCourseTable();
+        }
+
+        // Reset filters
+        document.getElementById('resetFilters').addEventListener('click', function() {
+            document.getElementById('courseSearch').value = '';
+            document.getElementById('semesterFilter').value = '';
+            document.getElementById('statusFilter').value = '';
+            filteredCourses = [...courses];
+            renderCourseTable();
+        });
+
+        // Sort functionality
+        document.querySelectorAll('[data-sort]').forEach(header => {
+            header.addEventListener('click', function() {
+                const column = this.getAttribute('data-sort');
+                
+                if (sortColumn === column) {
+                    sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                } else {
+                    sortColumn = column;
+                    sortDirection = 'asc';
+                }
+                
+                filteredCourses.sort((a, b) => {
+                    let aVal = a[column];
+                    let bVal = b[column];
+                    
+                    if (column === 'enrollment') {
+                        aVal = parseInt(aVal);
+                        bVal = parseInt(bVal);
+                    }
+                    
+                    if (sortDirection === 'asc') {
+                        return aVal > bVal ? 1 : -1;
+                    } else {
+                        return aVal < bVal ? 1 : -1;
+                    }
+                });
+                
+                renderCourseTable();
+            });
+        });
+
+        // Modal functionality
+        const createCourseBtn = document.getElementById('createCourseBtn');
+        const createCourseModal = document.getElementById('createCourseModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelCreate = document.getElementById('cancelCreate');
+
+        createCourseBtn.addEventListener('click', function() {
+            createCourseModal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', function() {
+            createCourseModal.classList.add('hidden');
+        });
+
+        cancelCreate.addEventListener('click', function() {
+            createCourseModal.classList.add('hidden');
+        });
+
+        // Create course form
+        document.getElementById('createCourseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const newCourse = {
+                id: courses.length + 1,
+                name: formData.get('courseName'),
+                code: formData.get('courseCode'),
+                semester: formData.get('semester'),
+                enrollment: 0,
+                maxEnrollment: parseInt(formData.get('maxEnrollment')) || 30,
+                status: 'Draft',
+                credits: parseInt(formData.get('credits')),
+                description: formData.get('description') || '',
+                prerequisites: '',
+                location: '',
+                schedule: ''
+            };
+            
+            courses.push(newCourse);
+            filteredCourses = [...courses];
+            renderCourseTable();
+            
+            createCourseModal.classList.add('hidden');
+            e.target.reset();
+            
+            // Show success message
+            showNotification('Course created successfully!', 'success');
+        });
+
+        // Action functions
+        function editCourse(courseId) {
+            const course = courses.find(c => c.id === courseId);
+            if (course) {
+                // Switch to details tab and populate form
+                document.querySelector('[data-tab="details"]').click();
+                
+                // Populate form fields
+                document.getElementById('courseName').value = course.name;
+                document.getElementById('courseCode').value = course.code;
+                document.getElementById('credits').value = course.credits;
+                document.getElementById('semester').value = course.semester;
+                document.getElementById('courseDescription').value = course.description;
+                document.getElementById('prerequisites').value = course.prerequisites;
+                document.getElementById('maxEnrollment').value = course.maxEnrollment;
+                document.getElementById('location').value = course.location;
+                document.getElementById('schedule').value = course.schedule;
+            }
+        }
+
+        function viewEnrollment(courseId) {
+            document.querySelector('[data-tab="enrollment"]').click();
+        }
+
+        function manageMaterials(courseId) {
+            document.querySelector('[data-tab="materials"]').click();
+        }
+
+        // File upload functionality
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('border-primary', 'bg-primary-50');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('border-primary', 'bg-primary-50');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-primary', 'bg-primary-50');
+            
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (file.size > 10 * 1024 * 1024) { // 10MB limit
+                    showNotification(`File ${file.name} is too large. Maximum size is 10MB.`, 'error');
+                    return;
+                }
+                
+                // Simulate file upload
+                showNotification(`File ${file.name} uploaded successfully!`, 'success');
+            });
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-academic-lg z-50 ${
+                type === 'success' ? 'bg-success-50 text-success-800 border border-success-200' :
+                type === 'error' ? 'bg-error-50 text-error-800 border border-error-200' :
+                'bg-primary-50 text-primary-800 border border-primary-200'
+            }`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Tab button styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .tab-button {
+                @apply py-2 px-4 text-sm font-medium text-text-secondary border-b-2 border-transparent hover:text-text-primary hover:border-border transition-all duration-200;
+            }
+            .tab-button.active {
+                @apply text-primary border-primary;
+            }
+            .tab-panel {
+                @apply hidden;
+            }
+            .tab-panel.active {
+                @apply block;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize
+        renderCourseTable();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

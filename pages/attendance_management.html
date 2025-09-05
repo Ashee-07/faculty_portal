@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Management | Faculty Portal</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffacultypo9167back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="bg-surface border-b border-border shadow-academic">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Title -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                            </svg>
+                        </div>
+                        <h1 class="text-xl font-semibold text-text-primary">Faculty Portal</h1>
+                    </div>
+                </div>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Faculty Avatar" class="w-8 h-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-sm font-medium text-text-primary">Dr. Sarah Johnson</span>
+                    </div>
+                    <button class="text-text-secondary hover:text-text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-surface border-r border-border">
+            <nav class="mt-8 px-4">
+                <div class="space-y-2">
+                    <a href="faculty_dashboard.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v0M8 5a2 2 0 000 4h8a2 2 0 000-4M8 5v0"/>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="course_management.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                        Course Management
+                    </a>
+                    <a href="attendance_management.html" class="sidebar-nav-item active">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                        Attendance Management
+                    </a>
+                    <a href="grade_management.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        Grade Management
+                    </a>
+                    <a href="leave_management.html" class="sidebar-nav-item">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Leave Management
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-hidden">
+            <div class="p-8">
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-semibold text-text-primary">Attendance Management</h1>
+                            <p class="text-text-secondary mt-2">Mark and track student attendance across your courses</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <button id="exportBtn" class="btn-secondary flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                Export Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course & Date Selection -->
+                <div class="card mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Course Selector -->
+                        <div>
+                            <label for="courseSelect" class="form-label">Select Course</label>
+                            <select id="courseSelect" class="form-input">
+                                <option value>Choose a course...</option>
+                                <option value="cs101">CS 101 - Introduction to Programming</option>
+                                <option value="cs201">CS 201 - Data Structures</option>
+                                <option value="cs301">CS 301 - Database Systems</option>
+                                <option value="cs401">CS 401 - Software Engineering</option>
+                            </select>
+                        </div>
+
+                        <!-- Date Picker -->
+                        <div>
+                            <label for="attendanceDate" class="form-label">Attendance Date</label>
+                            <input type="date" id="attendanceDate" class="form-input" value="2025-01-05" />
+                        </div>
+
+                        <!-- Session Time -->
+                        <div>
+                            <label for="sessionTime" class="form-label">Session Time</label>
+                            <select id="sessionTime" class="form-input">
+                                <option value="09:00">09:00 AM - 10:30 AM</option>
+                                <option value="11:00">11:00 AM - 12:30 PM</option>
+                                <option value="14:00">02:00 PM - 03:30 PM</option>
+                                <option value="16:00">04:00 PM - 05:30 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attendance Summary Panel -->
+                <div id="summaryPanel" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6 hidden">
+                    <div class="card bg-success-50 border-success-200">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-success-100 rounded-lg">
+                                <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-success-800">Present</p>
+                                <p id="presentCount" class="text-2xl font-semibold text-success-900">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-error-50 border-error-200">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-error-100 rounded-lg">
+                                <svg class="w-6 h-6 text-error-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-error-800">Absent</p>
+                                <p id="absentCount" class="text-2xl font-semibold text-error-900">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-warning-50 border-warning-200">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-warning-100 rounded-lg">
+                                <svg class="w-6 h-6 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-warning-800">Late</p>
+                                <p id="lateCount" class="text-2xl font-semibold text-warning-900">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-accent-50 border-accent-200">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-accent-100 rounded-lg">
+                                <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-accent-800">Attendance Rate</p>
+                                <p id="attendanceRate" class="text-2xl font-semibold text-accent-900">0%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Roster -->
+                <div id="studentRoster" class="card hidden">
+                    <!-- Bulk Actions -->
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
+                        <div class="flex items-center space-x-4">
+                            <h2 class="text-lg font-semibold text-text-primary">Student Roster</h2>
+                            <span id="totalStudents" class="px-2 py-1 bg-secondary-100 text-secondary-700 rounded-full text-sm font-medium">0 students</span>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <!-- Search -->
+                            <div class="relative">
+                                <input type="text" id="studentSearch" placeholder="Search students..." class="form-input pl-10 w-64" />
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Bulk Actions -->
+                            <button id="markAllPresentBtn" class="btn-primary text-sm">Mark All Present</button>
+                            <button id="markAllAbsentBtn" class="btn-secondary text-sm">Mark All Absent</button>
+                        </div>
+                    </div>
+
+                    <!-- Student Table -->
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="border-b border-border">
+                                    <th class="table-header text-left">Student</th>
+                                    <th class="table-header text-left">Student ID</th>
+                                    <th class="table-header text-center">Attendance Status</th>
+                                    <th class="table-header text-center">Previous Sessions</th>
+                                    <th class="table-header text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTableBody">
+                                <!-- Students will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Save Actions -->
+                    <div class="flex justify-between items-center mt-6 pt-6 border-t border-border">
+                        <div class="text-sm text-text-secondary">
+                            Last saved: <span id="lastSaved">Never</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <button id="resetBtn" class="btn-secondary">Reset Changes</button>
+                            <button id="saveAttendanceBtn" class="btn-primary">Save Attendance</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical Attendance Section -->
+                <div id="historicalSection" class="card mt-6 hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-text-primary">Historical Attendance</h3>
+                        <button id="toggleHistoryBtn" class="text-primary hover:text-primary-700 text-sm font-medium">
+                            Show Details
+                        </button>
+                    </div>
+                    
+                    <div id="historyContent" class="hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Attendance Trends -->
+                            <div>
+                                <h4 class="font-medium text-text-primary mb-3">Attendance Trends (Last 30 Days)</h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-text-secondary">Average Attendance</span>
+                                        <span class="font-medium text-success-600">87.5%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-text-secondary">Best Day</span>
+                                        <span class="font-medium text-text-primary">Monday (92.3%)</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-text-secondary">Lowest Day</span>
+                                        <span class="font-medium text-error-600">Friday (78.1%)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Students with Concerning Patterns -->
+                            <div>
+                                <h4 class="font-medium text-text-primary mb-3">Students Requiring Attention</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between p-2 bg-error-50 rounded-lg">
+                                        <div class="flex items-center">
+                                            <img src="https://images.pixabay.com/photos/2016/11/21/12/42/beard-1845166_150.jpg" alt="Student" class="w-6 h-6 rounded-full object-cover mr-2" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                            <span class="text-sm font-medium text-error-800">Michael Chen</span>
+                                        </div>
+                                        <span class="text-xs text-error-600">65% attendance</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-warning-50 rounded-lg">
+                                        <div class="flex items-center">
+                                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Student" class="w-6 h-6 rounded-full object-cover mr-2" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                            <span class="text-sm font-medium text-warning-800">Sarah Williams</span>
+                                        </div>
+                                        <span class="text-xs text-warning-600">72% attendance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-surface rounded-lg shadow-academic-xl max-w-md w-full mx-4">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="p-2 bg-warning-100 rounded-lg mr-3">
+                        <svg class="w-6 h-6 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary">Confirm Bulk Action</h3>
+                </div>
+                <p id="confirmationMessage" class="text-text-secondary mb-6">
+                    Are you sure you want to mark all students as present?
+                </p>
+                <div class="flex justify-end space-x-3">
+                    <button id="cancelConfirmation" class="btn-secondary">Cancel</button>
+                    <button id="confirmAction" class="btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mock student data
+        const mockStudents = [
+            { id: 'STU001', name: 'Emma Johnson', photo: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150', attendance: 'present', previousSessions: '18/20' },
+            { id: 'STU002', name: 'Michael Chen', photo: 'https://images.pixabay.com/photos/2016/11/21/12/42/beard-1845166_150.jpg', attendance: 'absent', previousSessions: '13/20' },
+            { id: 'STU003', name: 'Sarah Williams', photo: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150', attendance: 'late', previousSessions: '15/20' },
+            { id: 'STU004', name: 'David Rodriguez', photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face', attendance: 'present', previousSessions: '19/20' },
+            { id: 'STU005', name: 'Lisa Anderson', photo: 'https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150', attendance: 'present', previousSessions: '17/20' },
+            { id: 'STU006', name: 'James Wilson', photo: 'https://images.pixabay.com/photos/2016/11/29/09/38/adult-1868750_150.jpg', attendance: 'absent', previousSessions: '16/20' },
+            { id: 'STU007', name: 'Maria Garcia', photo: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=150', attendance: 'present', previousSessions: '20/20' },
+            { id: 'STU008', name: 'Robert Taylor', photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face', attendance: 'late', previousSessions: '14/20' }
+        ];
+
+        let currentStudents = [...mockStudents];
+        let hasUnsavedChanges = false;
+
+        // DOM Elements
+        const courseSelect = document.getElementById('courseSelect');
+        const attendanceDate = document.getElementById('attendanceDate');
+        const sessionTime = document.getElementById('sessionTime');
+        const summaryPanel = document.getElementById('summaryPanel');
+        const studentRoster = document.getElementById('studentRoster');
+        const studentTableBody = document.getElementById('studentTableBody');
+        const studentSearch = document.getElementById('studentSearch');
+        const markAllPresentBtn = document.getElementById('markAllPresentBtn');
+        const markAllAbsentBtn = document.getElementById('markAllAbsentBtn');
+        const saveAttendanceBtn = document.getElementById('saveAttendanceBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        const confirmAction = document.getElementById('confirmAction');
+        const cancelConfirmation = document.getElementById('cancelConfirmation');
+        const historicalSection = document.getElementById('historicalSection');
+        const toggleHistoryBtn = document.getElementById('toggleHistoryBtn');
+        const historyContent = document.getElementById('historyContent');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            courseSelect.addEventListener('change', handleCourseChange);
+            attendanceDate.addEventListener('change', handleDateChange);
+            sessionTime.addEventListener('change', handleSessionChange);
+            studentSearch.addEventListener('input', handleSearch);
+            markAllPresentBtn.addEventListener('click', () => showBulkConfirmation('present'));
+            markAllAbsentBtn.addEventListener('click', () => showBulkConfirmation('absent'));
+            saveAttendanceBtn.addEventListener('click', saveAttendance);
+            resetBtn.addEventListener('click', resetChanges);
+            cancelConfirmation.addEventListener('click', hideConfirmationModal);
+            toggleHistoryBtn.addEventListener('click', toggleHistorySection);
+        }
+
+        function handleCourseChange() {
+            if (courseSelect.value) {
+                summaryPanel.classList.remove('hidden');
+                studentRoster.classList.remove('hidden');
+                historicalSection.classList.remove('hidden');
+                renderStudentTable();
+                updateSummary();
+            } else {
+                summaryPanel.classList.add('hidden');
+                studentRoster.classList.add('hidden');
+                historicalSection.classList.add('hidden');
+            }
+        }
+
+        function handleDateChange() {
+            if (courseSelect.value) {
+                renderStudentTable();
+                updateSummary();
+            }
+        }
+
+        function handleSessionChange() {
+            if (courseSelect.value) {
+                renderStudentTable();
+                updateSummary();
+            }
+        }
+
+        function handleSearch() {
+            const searchTerm = studentSearch.value.toLowerCase();
+            const filteredStudents = mockStudents.filter(student => 
+                student.name.toLowerCase().includes(searchTerm) || 
+                student.id.toLowerCase().includes(searchTerm)
+            );
+            renderStudentTable(filteredStudents);
+        }
+
+        function renderStudentTable(students = currentStudents) {
+            const tbody = studentTableBody;
+            tbody.innerHTML = '';
+
+            students.forEach(student => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-border-light hover:bg-surface transition-colors';
+                
+                row.innerHTML = `
+                    <td class="table-cell">
+                        <div class="flex items-center">
+                            <img src="${student.photo}" 
+                                 alt="${student.name}" 
+                                 class="w-10 h-10 rounded-full object-cover mr-3"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <div>
+                                <div class="font-medium text-text-primary">${student.name}</div>
+                                <div class="text-sm text-text-secondary">${student.id}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-cell">
+                        <span class="font-mono text-sm">${student.id}</span>
+                    </td>
+                    <td class="table-cell text-center">
+                        <div class="flex justify-center space-x-2">
+                            <button class="attendance-btn ${student.attendance === 'present' ? 'bg-success-100 text-success-800 border-success-200' : 'bg-gray-100 text-gray-600 border-gray-200'} px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-success-200" 
+                                    data-student="${student.id}" data-status="present">
+                                Present
+                            </button>
+                            <button class="attendance-btn ${student.attendance === 'absent' ? 'bg-error-100 text-error-800 border-error-200' : 'bg-gray-100 text-gray-600 border-gray-200'} px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-error-200" 
+                                    data-student="${student.id}" data-status="absent">
+                                Absent
+                            </button>
+                            <button class="attendance-btn ${student.attendance === 'late' ? 'bg-warning-100 text-warning-800 border-warning-200' : 'bg-gray-100 text-gray-600 border-gray-200'} px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-warning-200" 
+                                    data-student="${student.id}" data-status="late">
+                                Late
+                            </button>
+                        </div>
+                    </td>
+                    <td class="table-cell text-center">
+                        <span class="text-sm text-text-secondary">${student.previousSessions}</span>
+                    </td>
+                    <td class="table-cell text-center">
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium" onclick="viewStudentHistory('${student.id}')">
+                            View History
+                        </button>
+                    </td>
+                `;
+
+                tbody.appendChild(row);
+            });
+
+            // Add event listeners to attendance buttons
+            document.querySelectorAll('.attendance-btn').forEach(btn => {
+                btn.addEventListener('click', handleAttendanceChange);
+            });
+
+            // Update total students count
+            document.getElementById('totalStudents').textContent = `${students.length} students`;
+        }
+
+        function handleAttendanceChange(e) {
+            const studentId = e.target.dataset.student;
+            const newStatus = e.target.dataset.status;
+            
+            // Update student status
+            const student = currentStudents.find(s => s.id === studentId);
+            if (student) {
+                student.attendance = newStatus;
+                hasUnsavedChanges = true;
+                
+                // Update button styles
+                const row = e.target.closest('tr');
+                const buttons = row.querySelectorAll('.attendance-btn');
+                buttons.forEach(btn => {
+                    btn.className = btn.className.replace(/bg-\w+-\d+|text-\w+-\d+|border-\w+-\d+/g, '');
+                    btn.className += ' bg-gray-100 text-gray-600 border-gray-200';
+                });
+                
+                // Highlight selected button
+                if (newStatus === 'present') {
+                    e.target.className = e.target.className.replace(/bg-gray-\d+|text-gray-\d+|border-gray-\d+/g, '');
+                    e.target.className += ' bg-success-100 text-success-800 border-success-200';
+                } else if (newStatus === 'absent') {
+                    e.target.className = e.target.className.replace(/bg-gray-\d+|text-gray-\d+|border-gray-\d+/g, '');
+                    e.target.className += ' bg-error-100 text-error-800 border-error-200';
+                } else if (newStatus === 'late') {
+                    e.target.className = e.target.className.replace(/bg-gray-\d+|text-gray-\d+|border-gray-\d+/g, '');
+                    e.target.className += ' bg-warning-100 text-warning-800 border-warning-200';
+                }
+                
+                updateSummary();
+                updateSaveButtonState();
+            }
+        }
+
+        function updateSummary() {
+            const present = currentStudents.filter(s => s.attendance === 'present').length;
+            const absent = currentStudents.filter(s => s.attendance === 'absent').length;
+            const late = currentStudents.filter(s => s.attendance === 'late').length;
+            const total = currentStudents.length;
+            const attendanceRate = total > 0 ? Math.round(((present + late) / total) * 100) : 0;
+
+            document.getElementById('presentCount').textContent = present;
+            document.getElementById('absentCount').textContent = absent;
+            document.getElementById('lateCount').textContent = late;
+            document.getElementById('attendanceRate').textContent = `${attendanceRate}%`;
+        }
+
+        function showBulkConfirmation(status) {
+            const action = status === 'present' ? 'present' : 'absent';
+            confirmationMessage.textContent = `Are you sure you want to mark all students as ${action}?`;
+            confirmationModal.classList.remove('hidden');
+            
+            confirmAction.onclick = () => {
+                bulkMarkAttendance(status);
+                hideConfirmationModal();
+            };
+        }
+
+        function bulkMarkAttendance(status) {
+            currentStudents.forEach(student => {
+                student.attendance = status;
+            });
+            hasUnsavedChanges = true;
+            renderStudentTable();
+            updateSummary();
+            updateSaveButtonState();
+        }
+
+        function hideConfirmationModal() {
+            confirmationModal.classList.add('hidden');
+        }
+
+        function saveAttendance() {
+            // Simulate save operation
+            const saveBtn = saveAttendanceBtn;
+            const originalText = saveBtn.textContent;
+            
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+            
+            setTimeout(() => {
+                hasUnsavedChanges = false;
+                saveBtn.disabled = false;
+                saveBtn.textContent = originalText;
+                
+                // Update last saved time
+                const now = new Date();
+                document.getElementById('lastSaved').textContent = now.toLocaleString();
+                
+                // Show success message
+                showNotification('Attendance saved successfully!', 'success');
+                updateSaveButtonState();
+            }, 1500);
+        }
+
+        function resetChanges() {
+            currentStudents = [...mockStudents];
+            hasUnsavedChanges = false;
+            renderStudentTable();
+            updateSummary();
+            updateSaveButtonState();
+            showNotification('Changes reset successfully!', 'info');
+        }
+
+        function updateSaveButtonState() {
+            saveAttendanceBtn.disabled = !hasUnsavedChanges;
+            resetBtn.disabled = !hasUnsavedChanges;
+        }
+
+        function toggleHistorySection() {
+            const isHidden = historyContent.classList.contains('hidden');
+            if (isHidden) {
+                historyContent.classList.remove('hidden');
+                toggleHistoryBtn.textContent = 'Hide Details';
+            } else {
+                historyContent.classList.add('hidden');
+                toggleHistoryBtn.textContent = 'Show Details';
+            }
+        }
+
+        function viewStudentHistory(studentId) {
+            // This would typically open a modal or navigate to a detailed view
+            showNotification(`Viewing attendance history for student ${studentId}`, 'info');
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-academic-lg transition-all duration-300 transform translate-x-full`;
+            
+            if (type === 'success') {
+                notification.className += ' bg-success-50 border border-success-200 text-success-800';
+            } else if (type === 'error') {
+                notification.className += ' bg-error-50 border border-error-200 text-error-800';
+            } else {
+                notification.className += ' bg-accent-50 border border-accent-200 text-accent-800';
+            }
+            
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                    </svg>
+                    ${message}
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Export functionality
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            showNotification('Attendance report exported successfully!', 'success');
+        });
+
+        // Initialize page state
+        updateSaveButtonState();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
