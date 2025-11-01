@@ -74,7 +74,7 @@
                                 <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface hover:text-text-primary">Profile Settings</a>
                                 <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface hover:text-text-primary">Preferences</a>
                                 <hr class="my-1 border-border" />
-                                <a href="login.html" class="block px-4 py-2 text-sm text-error hover:bg-error-50">Sign Out</a>
+                                <a href="javascript:void(0)" id="logoutLink" class="block px-4 py-2 text-sm text-error hover:bg-error-50">Sign Out</a>
                             </div>
                         </div>
                     </div>
@@ -331,7 +331,7 @@
 
                         <!-- Student 2 -->
                         <div class="flex items-center p-3 bg-surface rounded-lg">
-                            <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_150.jpg" alt="Student" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <img src="https://images.pixabay.com/photo-2016/11/21/12/42/beard-1845166_150.jpg" alt="Student" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
                             <div class="flex-1">
                                 <p class="text-sm font-medium text-text-primary">Michael Rodriguez</p>
                                 <p class="text-xs text-text-secondary">Submitted research proposal</p>
@@ -421,6 +421,7 @@
         // Profile dropdown functionality
         const profileDropdown = document.getElementById('profileDropdown');
         const profileMenu = document.getElementById('profileMenu');
+        const logoutLink = document.getElementById('logoutLink');
 
         profileDropdown.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -430,6 +431,17 @@
         // Close dropdown when clicking outside
         document.addEventListener('click', function() {
             profileMenu.classList.add('hidden');
+        });
+
+        // Logout functionality
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Clear user session from localStorage
+            localStorage.removeItem('facultyUser');
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
         });
 
         // Real-time updates simulation
